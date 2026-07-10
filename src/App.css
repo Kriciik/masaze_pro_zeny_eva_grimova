@@ -1,0 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-golden: #e1b655;
+  --color-golden-linear-01: #e1b655;
+  --color-golden-linear-02: #b98d2a;
+  --color-black: #191919;
+
+  --font-family-primary: "Cinzel", sans-serif;
+}
