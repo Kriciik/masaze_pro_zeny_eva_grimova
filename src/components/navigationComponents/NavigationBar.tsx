@@ -53,13 +53,13 @@ export default function NavigationBar() {
           } md:grid-rows-[1fr] md:opacity-100`}
         >
           <ul className="md:center flex h-full w-full flex-col gap-4 overflow-hidden text-center md:flex-row md:items-center md:justify-start md:gap-6">
-            <div className="hidden h-full w-20 md:block">
+            <a className="hidden h-full w-20 md:block" href="#">
               <img
                 src={logo}
                 alt="logo bílé"
                 className="max-h-20 object-cover"
               />
-            </div>
+            </a>
             {navigation_items.map((item, index) => (
               <li
                 key={index}
