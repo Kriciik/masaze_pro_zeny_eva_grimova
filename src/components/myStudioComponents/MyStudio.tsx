@@ -1,7 +1,6 @@
 import img1 from "../../assets/relexacni_masaz.webp";
 import img2 from "../../assets/arometerapeuticka_masaz.webp";
 import img3 from "../../assets/židle_masaz.webp";
-import img4 from "../../assets/arometerapeuticka_masaz.webp";
 
 import DescriptionSection from "./DesriptionSection";
 import { PhotoProvider } from "react-photo-view";
