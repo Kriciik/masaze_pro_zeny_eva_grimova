@@ -17,25 +17,56 @@ const types_of_massages = [
     name: "Aroma terapeutická",
     text: "Aromaterapeutická masáž spojuje blahodárné účinky klasické masáže s terapeutickými vlastnostmi esenciálních olejů. Pomocí jemných, plynulých pohybů dochází k uvolnění svalů i mysli, zatímco vonné oleje podporují relaxaci a harmonizaci organismu.  ",
   },
+  {
+    name: "Měkké techniky",
+    text: "speciální metoda masáže pracující s tzv. měkkými tkáněmi jako je kůže, podkoží úpony a různé části svalů. Hlavním cílem je uvolnění svalových křečí a odstranění bolesti.",
+  },
 ];
 
 export default function TypesOfMassages() {
   const [selectedMassage, setSelectedMassage] = useState<number>(0);
+  const isOddCount = types_of_massages.length % 2 !== 0;
+  const desktopColumns = 3;
+  const lastRowCount =
+    types_of_massages.length % desktopColumns || desktopColumns;
+
+  const getDesktopLastRowClass = (index: number) => {
+    if (!isOddCount || index < types_of_massages.length - lastRowCount) {
+      return "";
+    }
+
+    if (lastRowCount === 1) {
+      return "md:col-start-3";
+    }
+
+    if (lastRowCount === 2) {
+      return index === types_of_massages.length - 2
+        ? "md:col-start-2"
+        : "md:col-start-4";
+    }
+
+    return "";
+  };
 
   return (
     <div className="flex flex-col gap-5 pb-10 md:pb-30" id="masaze">
       <h2 className="pt-12 pb-10 text-center text-[2rem] md:text-[3rem]">
         Typy masáží
       </h2>
-      <div className="grid grid-cols-2 grid-rows-2 gap-4 border-b shadow-xl md:grid-cols-4 md:grid-rows-1 md:gap-0">
+      <div className="grid grid-cols-2 gap-4 border-b shadow-xl md:grid-cols-6">
         {types_of_massages.map((massage, index) => {
+          const isMobileLastCentered =
+            isOddCount && index === types_of_massages.length - 1;
+
           return (
             <button
               key={index}
-              className={`flex flex-col items-center transition-all duration-100 ${selectedMassage === index ? "bg-golden text-white" : ""} justify-center gap-2 p-4 text-center`}
+              className={`flex min-w-0 flex-col items-center justify-center gap-2 p-4 text-center transition-all duration-100 ${isMobileLastCentered ? "col-span-2 w-[calc(50%-0.5rem)] justify-self-center md:col-span-2 md:w-auto md:justify-self-stretch" : "col-span-1 md:col-span-2"} ${getDesktopLastRowClass(index)} ${selectedMassage === index ? "bg-golden text-white" : ""}`}
               onClick={() => setSelectedMassage(index)}
             >
-              <h3 className="text-[1.4rem]">{massage.name}</h3>
+              <h3 className="text-[1.4rem] leading-tight wrap-break-word">
+                {massage.name}
+              </h3>
             </button>
           );
         })}

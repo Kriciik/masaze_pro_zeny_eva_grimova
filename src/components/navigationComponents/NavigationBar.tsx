@@ -11,7 +11,7 @@ const navigation_items = [
 
 export default function NavigationBar() {
   const lastScrollY = useRef(0);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
