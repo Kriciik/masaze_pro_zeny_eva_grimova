@@ -1,7 +1,7 @@
 export default function ContactInfo() {
   return (
     <div
-      className="bg-golden flex w-full flex-col gap-15 px-5 pb-10 text-white lg:px-[20%]"
+      className="bg-golden flex w-full flex-col gap-15 px-5 pb-10 text-black lg:px-[20%]"
       id="kontakt"
     >
       <h2 className="pt-12 text-center text-[2rem] md:text-[3rem]">Kontakt</h2>

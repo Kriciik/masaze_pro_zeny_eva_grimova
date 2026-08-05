@@ -1,7 +1,7 @@
 export default function AboutMe() {
   return (
     <div
-      className="bg-golden flex flex-col justify-center gap-25 px-3 py-15 text-center text-white lg:px-[20%]"
+      className="bg-golden flex flex-col justify-center gap-25 px-3 py-15 text-center text-black lg:px-[20%]"
       id="co_delam"
     >
       <h1 className="text-[2rem] md:text-[3rem]">Co dělám</h1>
